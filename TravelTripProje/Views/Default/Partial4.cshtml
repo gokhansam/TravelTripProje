@@ -1,0 +1,18 @@
+﻿@using TravelTripProje.Models.Sinifler
+@model List<Blog>
+<div class="padding1">
+    <h4>En Beğendiğim Yerler</h4>
+    <div class="box-left">
+        @foreach (var x in Model)
+        {
+            <div class="bot-img">
+                <img src="@x.BlogImage" alt=""height:65px; width:120px />
+            </div>
+            <div class="bot-desc">
+                <p>@x.Aciklama.Substring(0, 20)...</p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+    @Html.Action("Partial5", "Default")
+</div>

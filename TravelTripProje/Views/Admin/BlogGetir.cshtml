@@ -1,0 +1,30 @@
+﻿@model TravelTripProje.Models.Sinifler.Blog
+@{
+    ViewBag.Title = "BlogGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Güncelleme Sayfası</h2>
+<br />
+<!--  BlogGuncelle: ActionResult cagırıldıgında.   Admin: adminController sınıfından
+       Post:Sayfada herhangi bir butona tıklanıldıgında -->
+
+@using (Html.BeginForm("BlogGuncelle", "Admin,", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control",@readonly="readyonly" }) @* readonly: ID degerinin değiştirilmesini engelledi*@
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" }) 
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BlogImage)
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama,15,1, new { @class = "form-control" }) @* 15 satır, 1 stun *@
+    <br />
+    <button class="btn btn-success">Blog Guncelle</button>
+}
